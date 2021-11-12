@@ -1,0 +1,56 @@
+1. Download the latest Raspbian image. I chose the one WITHOUT the "recommended software".
+https://www.raspberrypi.org/downloads/raspbian/
+
+1.5. Burn image onto an SD card. Use BalenaEtcher or another img burning utility. 
+https://www.balena.io/etcher/
+
+2. In the boot directory, add a file named "ssh.txt".
+sudo nano ssh.txt
+CTRL O
+CTRL X
+3. In the bood directory, add a file called "wpa_supplicant.conf"
+sudo nano wpa_supplicant.conf
+
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+country=US
+
+network={
+     ssid="Your network name/SSID"
+     psk="Your WPA/WPA2 security key"
+     key_mgmt=WPA-PSK
+}
+
+4. Power on the Pi. And SSH into it from another machine
+ssh pi@raspberrypi
+password: raspberry
+
+5. Change the password
+pwd NEWPASSWORD
+
+6. Enable VNC server and the 1-Wire protocol
+sudo raspi-config
+>interfaces>1-Wire
+
+7. Determine IP address
+ifconfig
+
+8. Logout of the pi/SSH session
+exit
+
+9. Send your files to the pi with Secure Copy. You can also leave the destination path as just "~" and move them manually later. 
+scp /path/to/file/file.py pi@raspberrypi:~/path/to/send/
+
+10. Download the relevant VNC client for your machine. 
+https://www.realvnc.com/en/connect/download/viewer/
+
+11. Open the VNC viewer and find your pi at the IP you determined previously
+
+12. Applications>Raspberry Pi Config. Enable VNC and change the default resolution. Reboot and re-connect via VNC.
+
+13. Run the reactor control from the terminal
+python3 ReactorControl.py
+
+
+
+

@@ -1,0 +1,10 @@
+;Toggle Light and pump ON and OFF
+G0 I2.95
+G0 I0.05
+G2 X1
+G7 X1
+G0 I2.95
+G0 I0.05
+G7 X0
+G2 X0
+G5 L0 ;loop to start

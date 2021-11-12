@@ -1,0 +1,15 @@
+; Temperature Control Setup loop
+G0 I1.0
+G3 T1A1
+G3 T2A1
+G3 T3A1
+G3 T4A1 T3A0
+G3 T5A1 ;Verify that [tubeNum-1] selects the correct T channel wo overflow
+G3 H0 R0
+G3 U10.0 L15.0
+G0 I5.0
+G0 I0.1
+G3 T1A0 T2A0 T3A0 T4A0 T5A0
+G3 H1 R1
+G3 U33.5 L30.5
+G5 L0 ;loop to start

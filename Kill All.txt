@@ -1,0 +1,5 @@
+; Kill Algorithms 1-3
+G0 I0.100
+G5 X1
+G5 X2
+G5 X3

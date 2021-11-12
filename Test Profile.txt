@@ -1,0 +1,19 @@
+G0 I1.5      ; set execution interval to 1.5 seconds. Default is 0.500 if not specified
+G1 T1A1 T2A1 ; Set tube 1 and tube 2 air ON
+G1 T1 A0 X    ; set tube 1 air OFF and then Send Air command (eXecute)
+;G0 I2
+G1 T3A1      ; Set tube3 air ON
+G1 T4 A1     ; Set tube4 air ON
+G1 T5A1 T6A1 ; Set tube5 air ON and Tube6 air ON
+G1 X         ; Send Air command (eXecutes settings)
+;G1 T1A1 T2A0 T3A1
+G2 X1        ; Light ON
+G2 X0        ; Light OFF
+G3 X1        ; TempControl ON
+G3 X0        ; Temp Control OFF
+;set data savefile
+G4 S ;C:\Users\lysholmc\Desktop\autoRecord.txt
+G4 X         ; Start Recording. Send same command to stop recording
+G0 8         ; Set execution interval to 8 seconds (pause 8 seconds before program end)
+G0 0.1       ; Set execution back to 0.1 seconds so we don't wait after next command
+G4 X	     ; Stop recording
